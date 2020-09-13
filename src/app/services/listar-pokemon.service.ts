@@ -14,29 +14,28 @@ export class ListarPokemonGetAllService {
   constructor(private http: HttpClient) { }
 
   getAll(): Observable<IPokemon[]> {
-
-    return new Observable<IPokemon[]>((obs) => {
-      this.http.get<IListarPokemon>(this.url).pipe(
-        map((pokemons) => {
-          this.url = pokemons.next;
-          return pokemons.results.map(
-            (pokemon) => this.getById(pokemon.url)
-          );
-        })
-      ).subscribe(
-        (observablesPokemon) => {
-          const pokemons: IPokemon[] = [];
-
-          merge(...observablesPokemon).subscribe(
-            (pokemon) => { pokemons.push(pokemon); },
-            () => { },
-            () => {
-              obs.next(pokemons);
-              obs.complete();
-            }
-          );
-        });
-    });
+    return new Observable<IPokemon[]>(
+      (obs) => {
+        this.http.get<IListarPokemon>(this.url).pipe(
+          map((pokemons) => {
+            this.url = pokemons.next;
+            return pokemons.results.map(
+              (pokemon) => this.getById(pokemon.url)
+            );
+          })
+        ).subscribe(
+          (observablesPokemon) => {
+            const pokemons: IPokemon[] = [];
+            merge(...observablesPokemon).subscribe(
+              (pokemon) => { pokemons.push(pokemon); },
+              () => { },
+              () => {
+                obs.next(pokemons);
+                obs.complete();
+              }
+            );
+          });
+      });
   }
 
   getById(url: string): Observable<IPokemon> {

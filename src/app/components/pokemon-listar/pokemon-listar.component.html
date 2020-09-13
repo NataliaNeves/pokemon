@@ -2,27 +2,34 @@
   <div class="mt-4">
     <img src="./../../../assets/pokemon-logo.png" id="icon" alt="Icone Inicial" />
   </div>
+
   <div *ngFor="let pokemon of pokemons" class="card mt-4" style="width: 35rem;">
+
     <div class="card-body">
       <div class="row ml-1">
         <img class="mb-3" id="icon-forma" [src]="pokemon.sprites.front_default" alt="Icone" />
         <h5 class=" mt-3 card-title">{{ pokemon.name.toUpperCase() }}</h5>
       </div>
+
       <button type="button" class="btn btn-primary" (click)="abrirDetalhes(pokemon)" data-toggle="modal"
         data-target="#modalDetalhes">
         Pokedex
         <img id="icon-detalhes" src="./../../../assets/pokeball.png" />
       </button>
+
       <button *ngIf="!estaFavorito(pokemon.order)" type="button" class="btn btn-secondary btn-block mt-3"
         (click)="favoritar(pokemon)">
         Favoritar
       </button>
+
       <button *ngIf="estaFavorito(pokemon.order)" type="button" class="btn btn-success btn-block mt-3"
         (click)="desFavoritar(pokemon)">
         Seu favorito :)
       </button>
     </div>
+  
   </div>
+
   <button type="button" class="btn btn-primary mt-3" [disabled]="!hasNext" (click)="carregarMais()">
     Carregar mais
   </button>
