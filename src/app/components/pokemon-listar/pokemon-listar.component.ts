@@ -1,7 +1,7 @@
-import { Component, OnInit, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { LocalStorageService } from 'angular-web-storage';
-import { ListarPokemonGetAllService } from '../../services/listar-pokemon.service';
 import { IPokemon } from '../../interfaces/listar-pokemon.interface';
+import { ListarPokemonGetAllService } from '../../services/listar-pokemon.service';
 import { PokemonDetalhesComponent } from '../pokemon-detalhes/pokemon-detalhes.component';
 
 @Component({
