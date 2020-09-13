@@ -3,9 +3,10 @@
 
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
       <div class="modal-header">
-        <h5 class="modal-title">Detalhes: {{ detalhesPokemon?.name.toUpperCase() }}</h5>
+        <h5 class="modal-title">
+          Detalhes: {{ detalhesPokemon?.name.toUpperCase() }}
+        </h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -38,7 +39,9 @@
             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
               <div class="card-body">
                 <ul *ngFor="let habilidade of detalhesPokemon?.abilities" class="mb-1">
-                  <li>{{ habilidade.ability.name }}</li>
+                  <li>
+                    {{ habilidade.ability.name }}
+                   </li>
                 </ul>
               </div>
             </div>
@@ -58,19 +61,19 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
               <div class="card-body">
                 <ul *ngFor="let movimentos of detalhesPokemon?.moves" class="mb-1">
-                  <li>{{ movimentos.move.name }}</li>
+                  <li>
+                    {{ movimentos.move.name }}
+                  </li>
                 </ul>
               </div>
             </div>
           </div>
         </div>
-
       </div>
 
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
       </div>
-      
     </div>
   </div>
 

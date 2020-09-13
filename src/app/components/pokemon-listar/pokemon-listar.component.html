@@ -4,7 +4,6 @@
   </div>
 
   <div *ngFor="let pokemon of pokemons" class="card mt-4" style="width: 35rem;">
-
     <div class="card-body">
       <div class="row ml-1">
         <img class="mb-3" id="icon-forma" [src]="pokemon.sprites.front_default" alt="Icone" />
@@ -27,7 +26,6 @@
         Seu favorito :)
       </button>
     </div>
-  
   </div>
 
   <button type="button" class="btn btn-primary mt-3" [disabled]="!hasNext" (click)="carregarMais()">
